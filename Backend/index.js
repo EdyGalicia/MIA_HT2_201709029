@@ -1,3 +1,10 @@
+//En dado caso les da error por la libreria de oracledb
+//Revisar los siguientes links: 
+//https://oracle.github.io/node-oracledb/INSTALL.html
+//https://oracle.github.io/node-oracledb/INSTALL.html#quickstart
+
+const estudiantesRouter = require('./routes/estudiantes.route')
+
 var express = require('express');
 const bodyParser = require('body-parser');
 
@@ -9,12 +16,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cors())
 
-//app.use("/estudiantes", estudiantesRouter)
+app.use("/", estudiantesRouter)
+
 
 app.listen(port, function () {
   console.log('Listening on port',port);
 });
-
-app.get('/Nombre', function(req, res){
-    res.send('Edy Galicia');
-})
